@@ -141,9 +141,13 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
+<li>$:/.tb/modules/startup/hide-sidebar.js</li>
+
 <li>$:/config/AutoSave</li>
 
 <li>$:/config/DefaultMoreSidebarTab</li>
+
+<li>$:/config/HideSidebarOnStartup</li>
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/close-all</li>
 
@@ -511,8 +515,6 @@ Error message and password prompt
 
 <li>Baril</li>
 
-<li>Draft of '$:/core/ui/SideBarSegments/page-controls'</li>
-
 <li>Geschichte</li>
 
 <li>Manifest</li>
@@ -545,11 +547,47 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
+<div bag="default" created="20151010151732122" creator="Tobias Beer" modified="20151010151750739" module-type="startup" revision="0" title="$:/.tb/modules/startup/hide-sidebar.js" type="application/javascript">
+<pre>/*\
+title: $:/.tb/modules/startup/hide-sidebar.js
+type: application/javascript
+module-type: startup
+created: 20151010151732122
+creator: Tobias Beer
+modified: 20151010151750739
+
+Hides the sidebar on startup when the config tiddler [[$:/config/hide-sidebar-on-startup]] contains &quot;yes&quot;
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+// Export name and synchronous status
+exports.name = &quot;hide-sidebar-on-startup&quot;;
+exports.platforms = [&quot;browser&quot;];
+exports.after = [&quot;startup&quot;];
+exports.synchronous = true;
+
+exports.startup = function() {
+	var conf = $tw.wiki.getTiddler(&quot;$:/config/HideSidebarOnStartup&quot;),
+		value = (conf ? conf.getFieldString(&quot;text&quot;) : &quot;&quot;).toLowerCase(),
+		state = value == &quot;yes&quot; ? &quot;no&quot; : &quot;yes&quot;;
+	$tw.wiki.setText(&quot;$:/state/sidebar&quot;, &quot;text&quot;, undefined, state);
+};
+
+})();</pre>
+</div>
 <div created="20201030114035320" modified="20201030114035320" title="$:/config/AutoSave">
 <pre>no</pre>
 </div>
 <div created="20201029231233285" modified="20201029231234772" title="$:/config/DefaultMoreSidebarTab">
 <pre>$:/core/ui/MoreSideBar/All</pre>
+</div>
+<div bag="default" created="20151007165524815" creator="Tobias Beer" modified="20201031230204522" revision="0" tags="" title="$:/config/HideSidebarOnStartup" type="text/vnd.tiddlywiki">
+<pre>yes</pre>
 </div>
 <div created="20201030102901291" modified="20201031225809816" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/close-all">
 <pre>hide</pre>
@@ -9972,7 +10010,8 @@ Error message and password prompt
 <div status="complete" title="$:/Import">
 <pre>Folgende Tiddler wurden importiert:
 
-# [[$:/plugins/tg/topleftmenu]]</pre>
+# [[$:/.tb/modules/startup/hide-sidebar.js]]
+# [[$:/config/HideSidebarOnStartup]]</pre>
 </div>
 <div created="20201030141547004" modified="20201030141547004" title="$:/Import!!popup-Untitled">
 <pre>yes</pre>
@@ -14646,9 +14685,9 @@ Replace the dummy tags with your own tags and add more lines if needed.
 <pre>close</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
-<pre>no</pre>
+<pre>yes</pre>
 </div>
-<div created="20201031225149772" list="$:/ControlPanel" modified="20201031225806033" title="$:/StoryList">
+<div created="20201031225149772" list="$:/Import $:/config/HideSidebarOnStartup" modified="20201031230157170" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201031224857738" list="$:/core/ui/Buttons/home $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/refresh $:/core/ui/Buttons/more-page-actions $:/plugins/tg/layout/buttons/toggle-sticky" modified="20201031224857738" title="$:/tags/PageControls">
@@ -15867,10 +15906,6 @@ Eines Tages taten sich 3 Erbauer zusammen um eine Welt zu schaffen:
 * [[Ejamirda]]: Göttin des Lebens
 * [[Kharan Gal]]: Gott des Feuers und der Schatten
 * [[Urn Gerel]]: Gott des Wassers und des Lichts</pre>
-</div>
-<div draft.of="$:/core/ui/SideBarSegments/page-controls" draft.title="$:/core/ui/SideBarSegments/page-controls" modified="20201031225655521" tags="$:/tags/SideBarSegment" title="Draft of '$:/core/ui/SideBarSegments/page-controls'">
-<pre>{{||$:/core/ui/PageTemplate/pagecontrols}}
-</pre>
 </div>
 <div created="20201030152501202" modified="20201031223952335" tags="Contents" title="Geschichte">
 <pre>Zu beginn entwarfen [[Kharan|Kharan Gal]] und [[Urn|Urn Gerel]] zwei Systeme [[Yor]] und [[Anar]] welche für Hitze und
