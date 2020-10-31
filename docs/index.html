@@ -147,6 +147,8 @@ Error message and password prompt
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/close-all</li>
 
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/full-screen</li>
+
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home</li>
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/language</li>
@@ -254,6 +256,8 @@ Error message and password prompt
 <li>$:/state/tab-2059741237</li>
 
 <li>$:/state/tab-2065006209</li>
+
+<li>$:/state/tab-658165082</li>
 
 <li>$:/state/tab/moresidebar-1850697562</li>
 
@@ -507,6 +511,8 @@ Error message and password prompt
 
 <li>Baril</li>
 
+<li>Draft of '$:/core/ui/SideBarSegments/page-controls'</li>
+
 <li>Geschichte</li>
 
 <li>Manifest</li>
@@ -545,8 +551,11 @@ Error message and password prompt
 <div created="20201029231233285" modified="20201029231234772" title="$:/config/DefaultMoreSidebarTab">
 <pre>$:/core/ui/MoreSideBar/All</pre>
 </div>
-<div created="20201030102901291" modified="20201030102901291" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/close-all">
-<pre>show</pre>
+<div created="20201030102901291" modified="20201031225809816" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/close-all">
+<pre>hide</pre>
+</div>
+<div created="20201031225224553" modified="20201031225230819" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/full-screen">
+<pre>hide</pre>
 </div>
 <div created="20201031225009804" modified="20201031225009804" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
@@ -14264,7 +14273,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150710114949541" creator="TonGerner" leftmenu-width="270px" modified="20201031224939256" modifier="TonGerner" scroll-height="700px" story-left="230px" story-width="770px" title="$:/plugins/tg/topleftmenu/left-menu-show-styles" top-leftmenu="81px">
+<div created="20150710114949541" creator="TonGerner" leftmenu-width="270px" modified="20201031225733176" modifier="TonGerner" scroll-height="700px" story-left="230px" story-width="770px" title="$:/plugins/tg/topleftmenu/left-menu-show-styles" top-leftmenu="81px">
 <pre>&lt;pre&gt;/* LEFT MENU */
 /* STORY-RIVER */
 html .tc-story-river {
@@ -14361,7 +14370,7 @@ These entries use my slider macro
 &lt;&lt;toc-selective-expandable 'Contents'&gt;&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="{{$:/core/images/menu-button}} top menu" created="20150710114656438" creator="TonGerner" description="Menu on top" modified="20201031222635471" modifier="TonGerner" tags="$:/tags/TopLeftBar" title="$:/plugins/tg/topleftmenu/topmenu">
+<div caption="{{$:/core/images/menu-button}} top menu" created="20150710114656438" creator="TonGerner" description="Menu on top" modified="20201031225751327" modifier="TonGerner" tags="$:/tags/TopLeftBar" title="$:/plugins/tg/topleftmenu/topmenu">
 <pre>&lt;div class=&quot;tgc-topmenu&quot;&gt;
 &lt;/div&gt;
 &lt;!--
@@ -14594,7 +14603,7 @@ Replace the dummy tags with your own tags and add more lines if needed.
 <div created="20201030140707433" modified="20201031160440100" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div created="20201030153028144" modified="20201031224939256" title="$:/state/sidebar">
+<div created="20201030153028144" modified="20201031225733176" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20201029231047104" modified="20201031224820645" title="$:/state/tab--1963855381">
@@ -14621,13 +14630,16 @@ Replace the dummy tags with your own tags and add more lines if needed.
 <div created="20201029232730131" modified="20201030211836085" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20201030102310814" modified="20201031224924896" title="$:/state/tab/moresidebar-1850697562">
-<pre>$:/core/ui/MoreSideBar/All</pre>
+<div created="20201031225203687" modified="20201031225206049" title="$:/state/tab-658165082">
+<pre>$:/plugins/tg/topleftmenu/settings</pre>
 </div>
-<div created="20201029231254583" modified="20201031224956992" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Tools</pre>
+<div created="20201030102310814" modified="20201031225643687" title="$:/state/tab/moresidebar-1850697562">
+<pre>$:/core/ui/MoreSideBar/Plugins</pre>
 </div>
-<div created="20201030102858891" modified="20201031224836020" title="$:/state/tabs/controlpanel/toolbars-1345989671">
+<div created="20201029231254583" modified="20201031225756825" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Open</pre>
+</div>
+<div created="20201030102858891" modified="20201031225808089" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
 <div created="20201031224106763" modified="20201031224107425" title="$:/state/toc/Contents-Rassen--1548125957">
@@ -14636,7 +14648,7 @@ Replace the dummy tags with your own tags and add more lines if needed.
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20201031225019481" list="" modified="20201031225027798" title="$:/StoryList">
+<div created="20201031225149772" list="$:/ControlPanel" modified="20201031225806033" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201031224857738" list="$:/core/ui/Buttons/home $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/refresh $:/core/ui/Buttons/more-page-actions $:/plugins/tg/layout/buttons/toggle-sticky" modified="20201031224857738" title="$:/tags/PageControls">
@@ -15855,6 +15867,10 @@ Eines Tages taten sich 3 Erbauer zusammen um eine Welt zu schaffen:
 * [[Ejamirda]]: Göttin des Lebens
 * [[Kharan Gal]]: Gott des Feuers und der Schatten
 * [[Urn Gerel]]: Gott des Wassers und des Lichts</pre>
+</div>
+<div draft.of="$:/core/ui/SideBarSegments/page-controls" draft.title="$:/core/ui/SideBarSegments/page-controls" modified="20201031225655521" tags="$:/tags/SideBarSegment" title="Draft of '$:/core/ui/SideBarSegments/page-controls'">
+<pre>{{||$:/core/ui/PageTemplate/pagecontrols}}
+</pre>
 </div>
 <div created="20201030152501202" modified="20201031223952335" tags="Contents" title="Geschichte">
 <pre>Zu beginn entwarfen [[Kharan|Kharan Gal]] und [[Urn|Urn Gerel]] zwei Systeme [[Yor]] und [[Anar]] welche für Hitze und
