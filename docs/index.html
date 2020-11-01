@@ -169,6 +169,8 @@ Error message and password prompt
 
 <li>$:/core</li>
 
+<li>$:/core/ui/TopBar/menu</li>
+
 <li>$:/DefaultTiddlers</li>
 
 <li>$:/GitHub/Branch</li>
@@ -222,6 +224,8 @@ Error message and password prompt
 <li>$:/state/add-plugin-info/$:/temp/ServerConnection/https://tiddlywiki.com/library/v5.1.22/index.html/$:/temp/RemoteAssetInfo/https://tiddlywiki.com/library/v5.1.22/index.html/$:/themes/tiddlywiki/seamless</li>
 
 <li>$:/state/addplugins/tab-1342078386</li>
+
+<li>$:/state/leftmenu</li>
 
 <li>$:/state/plugin-info--123751492-$:/languages/de-DE</li>
 
@@ -9989,6 +9993,30 @@ exports.startup = function() {
     }
 }</pre>
 </div>
+<div created="20150710120220387" creator="TonGerner" modified="20201031235825732" modifier="TonGerner" tags="$:/tags/TopRightBar" title="$:/core/ui/TopBar/menu">
+<pre>&lt;div style=&quot;width:40px;position:fixed;top:6px;left:0px;&quot;&gt;
+&lt;$fieldmangler tiddler=&quot;$:/plugins/tg/topleftmenu/left-menu-show-styles&quot;&gt;
+&lt;$reveal state=&quot;$:/state/leftmenu&quot; type=&quot;nomatch&quot; text=&quot;no&quot;&gt;
+&lt;$button message=&quot;tm-remove-tag&quot; param=&quot;$:/tags/Stylesheet&quot; set=&quot;$:/state/leftmenu&quot; setTo=&quot;no&quot; tooltip=&quot;Hide left menu&quot; class=&quot;tc-btn-invisible&quot;&gt;{{$:/core/images/chevron-left}}
+&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/state/leftmenu&quot; type=&quot;match&quot; text=&quot;no&quot;&gt;
+&lt;$button message=&quot;tm-add-tag&quot; param=&quot;$:/tags/Stylesheet&quot; set=&quot;$:/state/leftmenu&quot; setTo=&quot;yes&quot; tooltip=&quot;Show left menu&quot; class=&quot;tc-btn-invisible&quot;&gt;{{$:/core/images/chevron-right}}
+&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;/$fieldmangler&gt;
+&lt;/div&gt;
+
+&lt;$fieldmangler tiddler=&quot;$:/plugins/tg/topleftmenu/left-menu-show-styles&quot;&gt;
+&lt;$reveal state=&quot;$:/state/sidebar&quot; type=&quot;nomatch&quot; text=&quot;no&quot;&gt;
+&lt;$button set=&quot;$:/state/sidebar&quot; setTo=&quot;no&quot; tooltip=&quot;Hide sidebar&quot; class=&quot;tc-btn-invisible&quot;&gt;{{$:/core/images/chevron-right}}&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/state/sidebar&quot; type=&quot;match&quot; text=&quot;no&quot;&gt;
+&lt;$button message=&quot;tm-remove-tag&quot; param=&quot;$:/tags/Stylesheet&quot; set=&quot;$:/state/sidebar&quot; setTo=&quot;yes&quot; tooltip=&quot;Show sidebar&quot; class=&quot;tc-btn-invisible&quot;&gt;{{$:/core/images/chevron-left}}&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;/$fieldmangler&gt;
+</pre>
+</div>
 <div created="20201029231022788" modified="20201030151250869" title="$:/DefaultTiddlers">
 <pre>Welcome</pre>
 </div>
@@ -14312,7 +14340,7 @@ exports.startup = function() {
     }
 }</pre>
 </div>
-<div created="20150710114949541" creator="TonGerner" leftmenu-width="270px" modified="20201031225733176" modifier="TonGerner" scroll-height="700px" story-left="230px" story-width="770px" title="$:/plugins/tg/topleftmenu/left-menu-show-styles" top-leftmenu="81px">
+<div created="20150710114949541" creator="TonGerner" leftmenu-width="270px" modified="20201031235950757" modifier="TonGerner" scroll-height="700px" story-left="230px" story-width="1300px" title="$:/plugins/tg/topleftmenu/left-menu-show-styles" top-leftmenu="81px">
 <pre>&lt;pre&gt;/* LEFT MENU */
 /* STORY-RIVER */
 html .tc-story-river {
@@ -14612,6 +14640,9 @@ Replace the dummy tags with your own tags and add more lines if needed.
 <div created="20201030141013675" modified="20201030141013675" title="$:/state/addplugins/tab-1342078386">
 <pre>$:/config/OfficialPluginLibrary</pre>
 </div>
+<div created="20201031235302788" modified="20201031235948108" tags="" title="$:/state/leftmenu">
+<pre>yes</pre>
+</div>
 <div created="20201029231415799" modified="20201029231433153" title="$:/state/plugin-info--123751492-$:/languages/de-DE">
 <pre>yes</pre>
 </div>
@@ -14642,11 +14673,11 @@ Replace the dummy tags with your own tags and add more lines if needed.
 <div created="20201030140707433" modified="20201031160440100" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div created="20201030153028144" modified="20201031225733176" title="$:/state/sidebar">
+<div created="20201030153028144" modified="20201031235956685" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
-<div created="20201029231047104" modified="20201031224820645" title="$:/state/tab--1963855381">
-<pre>$:/core/ui/ControlPanel/Toolbars</pre>
+<div created="20201029231047104" modified="20201031235900251" title="$:/state/tab--1963855381">
+<pre>$:/plugins/tg/layout/tweaks</pre>
 </div>
 <div created="20201030152842399" modified="20201031224724329" title="$:/state/tab--2112689675">
 <pre>$:/core/ui/ControlPanel/Basics</pre>
@@ -14663,8 +14694,8 @@ Replace the dummy tags with your own tags and add more lines if needed.
 <div created="20201029231041454" modified="20201031224817112" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Appearance</pre>
 </div>
-<div created="20201030154743677" modified="20201031224217869" title="$:/state/tab-2059741237">
-<pre>$:/plugins/tg/layout/themetweaks</pre>
+<div created="20201030154743677" modified="20201031235905383" title="$:/state/tab-2059741237">
+<pre>$:/plugins/tg/topleftmenu/settings</pre>
 </div>
 <div created="20201029232730131" modified="20201030211836085" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
@@ -14672,22 +14703,22 @@ Replace the dummy tags with your own tags and add more lines if needed.
 <div created="20201031225203687" modified="20201031225206049" title="$:/state/tab-658165082">
 <pre>$:/plugins/tg/topleftmenu/settings</pre>
 </div>
-<div created="20201030102310814" modified="20201031225643687" title="$:/state/tab/moresidebar-1850697562">
-<pre>$:/core/ui/MoreSideBar/Plugins</pre>
+<div created="20201030102310814" modified="20201031235235012" title="$:/state/tab/moresidebar-1850697562">
+<pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20201029231254583" modified="20201031225756825" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div created="20201029231254583" modified="20201031234713161" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div created="20201030102858891" modified="20201031225808089" title="$:/state/tabs/controlpanel/toolbars-1345989671">
+<div created="20201030102858891" modified="20201031235857446" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
 <div created="20201031224106763" modified="20201031224107425" title="$:/state/toc/Contents-Rassen--1548125957">
 <pre>close</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
-<pre>yes</pre>
+<pre>no</pre>
 </div>
-<div created="20201031225149772" list="$:/Import $:/config/HideSidebarOnStartup" modified="20201031230157170" title="$:/StoryList">
+<div created="20201031234723906" list="$:/ControlPanel $:/state/leftmenu $:/core/ui/TopBar/menu Welcome" modified="20201031235855254" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201031224857738" list="$:/core/ui/Buttons/home $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/refresh $:/core/ui/Buttons/more-page-actions $:/plugins/tg/layout/buttons/toggle-sticky" modified="20201031224857738" title="$:/tags/PageControls">
