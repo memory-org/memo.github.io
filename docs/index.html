@@ -47,7 +47,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
-<title>M.E.M.O — Memory Entity Managemant Organisation</title>
+<title> M.E.M.O  — Memory Entity Managemant Organisation</title>
 <!--~~ This is a Tiddlywiki file. The points of interest in the file are marked with this pattern ~~-->
 
 <!--~~ Raw markup ~~-->
@@ -168,6 +168,14 @@ Error message and password prompt
 <li>$:/config/TextEditor/EditorHeight/Mode</li>
 
 <li>$:/core</li>
+
+<li>$:/core/ui/Buttons/control-panel</li>
+
+<li>$:/core/ui/Buttons/home</li>
+
+<li>$:/core/ui/Buttons/new-tiddler</li>
+
+<li>$:/core/ui/Buttons/save-wiki</li>
 
 <li>$:/core/ui/TopBar/menu</li>
 
@@ -10013,6 +10021,61 @@ exports.startup = function() {
     }
 }</pre>
 </div>
+<div caption="{{$:/core/images/options-button}} {{$:/language/Buttons/ControlPanel/Caption}}" created="20201102202608541" description="{{$:/language/Buttons/ControlPanel/Hint}}" modified="20201102202633094" tags="$:/tags/PageControls" title="$:/core/ui/Buttons/control-panel">
+<pre>\whitespace trim
+\define control-panel-button(class)
+&lt;$button to=&quot;$:/ControlPanel&quot; tooltip={{$:/language/Buttons/ControlPanel/Hint}} aria-label={{$:/language/Buttons/ControlPanel/Caption}} class=&quot;&quot;&quot;$(tv-config-toolbar-class)$ $class$&quot;&quot;&quot;&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-icons&gt;match[yes]]&quot;&gt;
+&lt;i class=&quot;fas fa-cog&quot;&gt;&lt;/i&gt;
+&lt;/$list&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-text&gt;match[yes]]&quot;&gt;
+&lt;span class=&quot;tc-btn-text&quot;&gt;&lt;$text text={{$:/language/Buttons/ControlPanel/Caption}}/&gt;&lt;/span&gt;
+&lt;/$list&gt;
+&lt;/$button&gt;
+\end
+
+&lt;$list filter=&quot;[list[$:/StoryList]] +[field:title[$:/ControlPanel]]&quot; emptyMessage=&lt;&lt;control-panel-button&gt;&gt;&gt;
+&lt;&lt;control-panel-button &quot;tc-selected&quot;&gt;&gt;
+&lt;/$list&gt;
+</pre>
+</div>
+<div caption="{{$:/core/images/home-button}} {{$:/language/Buttons/Home/Caption}}" created="20201102202255532" description="{{$:/language/Buttons/Home/Hint}}" modified="20201102202325104" tags="$:/tags/PageControls" title="$:/core/ui/Buttons/home">
+<pre>&lt;$button message=&quot;tm-home&quot; tooltip={{$:/language/Buttons/Home/Hint}} aria-label={{$:/language/Buttons/Home/Caption}} class=&lt;&lt;tv-config-toolbar-class&gt;&gt;&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-icons&gt;match[yes]]&quot;&gt;
+&lt;i class=&quot;fas fa-home&quot;&gt;&lt;/i&gt;
+&lt;/$list&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-text&gt;match[yes]]&quot;&gt;
+&lt;span class=&quot;tc-btn-text&quot;&gt;&lt;$text text={{$:/language/Buttons/Home/Caption}}/&gt;&lt;/span&gt;
+&lt;/$list&gt;
+&lt;/$button&gt;</pre>
+</div>
+<div caption="{{$:/core/images/new-button}} {{$:/language/Buttons/NewTiddler/Caption}}" created="20201102202511695" description="{{$:/language/Buttons/NewTiddler/Hint}}" modified="20201102202515047" tags="$:/tags/PageControls" title="$:/core/ui/Buttons/new-tiddler">
+<pre>\whitespace trim
+&lt;$button actions={{$:/core/ui/Actions/new-tiddler}} tooltip={{$:/language/Buttons/NewTiddler/Hint}} aria-label={{$:/language/Buttons/NewTiddler/Caption}} class=&lt;&lt;tv-config-toolbar-class&gt;&gt;&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-icons&gt;match[yes]]&quot;&gt;
+&lt;i class=&quot;fas fa-plus-square&quot;&gt;&lt;/i&gt;
+&lt;/$list&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-text&gt;match[yes]]&quot;&gt;
+&lt;span class=&quot;tc-btn-text&quot;&gt;&lt;$text text={{$:/language/Buttons/NewTiddler/Caption}}/&gt;&lt;/span&gt;
+&lt;/$list&gt;
+&lt;/$button&gt;
+</pre>
+</div>
+<div caption="{{$:/core/images/save-button}} {{$:/language/Buttons/SaveWiki/Caption}}" created="20201102202658700" description="{{$:/language/Buttons/SaveWiki/Hint}}" modified="20201102202711346" tags="$:/tags/PageControls" title="$:/core/ui/Buttons/save-wiki">
+<pre>&lt;$button tooltip={{$:/language/Buttons/SaveWiki/Hint}} aria-label={{$:/language/Buttons/SaveWiki/Caption}} class=&lt;&lt;tv-config-toolbar-class&gt;&gt;&gt;
+&lt;$wikify name=&quot;site-title&quot; text={{$:/config/SaveWikiButton/Filename}}&gt;
+&lt;$action-sendmessage $message=&quot;tm-save-wiki&quot; $param={{$:/config/SaveWikiButton/Template}} filename=&lt;&lt;site-title&gt;&gt;/&gt;
+&lt;/$wikify&gt;
+&lt;span class=&quot;tc-dirty-indicator&quot;&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-icons&gt;match[yes]]&quot;&gt;
+&lt;i class=&quot;fas fa-upload&quot;&gt;&lt;/i&gt;
+&lt;/$list&gt;
+&lt;$list filter=&quot;[&lt;tv-config-toolbar-text&gt;match[yes]]&quot;&gt;
+&lt;span class=&quot;tc-btn-text&quot;&gt;&lt;$text text={{$:/language/Buttons/SaveWiki/Caption}}/&gt;&lt;/span&gt;
+&lt;/$list&gt;
+&lt;/span&gt;
+&lt;/$button&gt;</pre>
+</div>
 <div created="20150710120220387" creator="TonGerner" modified="20201031235825732" modifier="TonGerner" tags="$:/tags/TopRightBar" title="$:/core/ui/TopBar/menu">
 <pre>&lt;div style=&quot;width:40px;position:fixed;top:6px;left:0px;&quot;&gt;
 &lt;$fieldmangler tiddler=&quot;$:/plugins/tg/topleftmenu/left-menu-show-styles&quot;&gt;
@@ -14645,8 +14708,8 @@ Replace the dummy tags with your own tags and add more lines if needed.
 <div created="20201029231021836" modified="20201030152353037" title="$:/SiteSubtitle">
 <pre>Memory Entity Managemant Organisation</pre>
 </div>
-<div created="20201029231016076" modified="20201030143520215" title="$:/SiteTitle">
-<pre>M.E.M.O</pre>
+<div created="20201029231016076" modified="20201102201939770" title="$:/SiteTitle">
+<pre>&lt;i class=&quot;fas fa-sd-card&quot;&gt;&lt;/i&gt; M.E.M.O </pre>
 </div>
 <div created="20201030152959472" modified="20201030152959472" title="$:/state/add-plugin-info/$:/temp/ServerConnection/https://tiddlywiki.com/library/v5.1.22/index.html/$:/temp/RemoteAssetInfo/https://tiddlywiki.com/library/v5.1.22/index.html/$:/plugins/tiddlywiki/menubar">
 <pre>yes</pre>
@@ -14693,14 +14756,14 @@ Replace the dummy tags with your own tags and add more lines if needed.
 <div created="20201030140707433" modified="20201031160440100" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div created="20201030153028144" modified="20201101174200486" title="$:/state/sidebar">
+<div created="20201030153028144" modified="20201102201923983" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
-<div created="20201029231047104" modified="20201031235900251" title="$:/state/tab--1963855381">
-<pre>$:/plugins/tg/layout/tweaks</pre>
+<div created="20201029231047104" modified="20201102201927993" title="$:/state/tab--1963855381">
+<pre>$:/core/ui/ControlPanel/Palette</pre>
 </div>
-<div created="20201030152842399" modified="20201101173249691" title="$:/state/tab--2112689675">
-<pre>$:/core/ui/ControlPanel/Advanced</pre>
+<div created="20201030152842399" modified="20201102201930811" title="$:/state/tab--2112689675">
+<pre>$:/core/ui/ControlPanel/Basics</pre>
 </div>
 <div created="20201029231124172" modified="20201030114430319" title="$:/state/tab--219645345">
 <pre>$:/core/ui/ControlPanel/Plugins/Add/Plugins</pre>
@@ -14711,8 +14774,8 @@ Replace the dummy tags with your own tags and add more lines if needed.
 <div created="20201030152853695" modified="20201031224711054" title="$:/state/tab--959111941">
 <pre>$:/core/ui/ControlPanel/EditorTypes</pre>
 </div>
-<div created="20201029231041454" modified="20201101173252781" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Appearance</pre>
+<div created="20201029231041454" modified="20201102202004069" title="$:/state/tab-1749438307">
+<pre>$:/plugins/TheDiveO/FontAwesome/ui/ControlPanel/FontAwesome</pre>
 </div>
 <div created="20201030154743677" modified="20201031235905383" title="$:/state/tab-2059741237">
 <pre>$:/plugins/tg/topleftmenu/settings</pre>
@@ -14723,11 +14786,11 @@ Replace the dummy tags with your own tags and add more lines if needed.
 <div created="20201031225203687" modified="20201031225206049" title="$:/state/tab-658165082">
 <pre>$:/plugins/tg/topleftmenu/settings</pre>
 </div>
-<div created="20201030102310814" modified="20201101000202964" title="$:/state/tab/moresidebar-1850697562">
-<pre>$:/core/ui/MoreSideBar/Plugins</pre>
+<div created="20201030102310814" modified="20201102202226639" title="$:/state/tab/moresidebar-1850697562">
+<pre>$:/plugins/tg/layout/systemtags</pre>
 </div>
-<div created="20201029231254583" modified="20201101173832177" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div created="20201029231254583" modified="20201102202011586" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/More</pre>
 </div>
 <div created="20201030102858891" modified="20201031235857446" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
@@ -14744,7 +14807,7 @@ Replace the dummy tags with your own tags and add more lines if needed.
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20201101174008375" list="Spielelemente Systeme Welcome" modified="20201101174008376" title="$:/StoryList">
+<div created="20201102201925146" list="$:/core/ui/Buttons/control-panel $:/core/ui/Buttons/new-tiddler $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/home $:/core/ui/PageTemplate/pagecontrols Welcome" modified="20201102202504270" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201031224857738" list="$:/core/ui/Buttons/home $:/core/ui/Buttons/fold-all $:/core/ui/Buttons/unfold-all $:/core/ui/Buttons/permaview $:/core/ui/Buttons/new-tiddler $:/core/ui/Buttons/close-all $:/core/ui/Buttons/new-journal $:/core/ui/Buttons/new-image $:/core/ui/Buttons/import $:/core/ui/Buttons/export-page $:/core/ui/Buttons/control-panel $:/core/ui/Buttons/advanced-search $:/core/ui/Buttons/manager $:/core/ui/Buttons/tag-manager $:/core/ui/Buttons/language $:/core/ui/Buttons/palette $:/core/ui/Buttons/theme $:/core/ui/Buttons/storyview $:/core/ui/Buttons/encryption $:/core/ui/Buttons/timestamp $:/core/ui/Buttons/full-screen $:/core/ui/Buttons/print $:/core/ui/Buttons/save-wiki $:/core/ui/Buttons/refresh $:/core/ui/Buttons/more-page-actions $:/plugins/tg/layout/buttons/toggle-sticky" modified="20201031224857738" title="$:/tags/PageControls">
@@ -14795,15 +14858,15 @@ Replace the dummy tags with your own tags and add more lines if needed.
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1366&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;768&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;de-DE&quot;
         }
     }
 }</pre>
